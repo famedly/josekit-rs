@@ -20,7 +20,7 @@ use crate::{JoseError, JoseHeader};
 
 static DEFAULT_CONTEXT: Lazy<JwtContext> = Lazy::new(|| JwtContext::new());
 
-/// Return the string repsentation of the JWT with a "none" algorithm.
+/// Return the string representation of the JWT with a "none" algorithm.
 ///
 /// # Arguments
 ///
@@ -30,7 +30,7 @@ pub fn encode_unsecured(payload: &JwtPayload, header: &JwsHeader) -> Result<Stri
     DEFAULT_CONTEXT.encode_unsecured(payload, header)
 }
 
-/// Return the string repsentation of the JWT with the siginig algorithm.
+/// Return the string representation of the JWT with the siginig algorithm.
 ///
 /// # Arguments
 ///
@@ -45,7 +45,7 @@ pub fn encode_with_signer(
     DEFAULT_CONTEXT.encode_with_signer(payload, header, signer)
 }
 
-/// Return the string repsentation of the JWT with the encrypting algorithm.
+/// Return the string representation of the JWT with the encrypting algorithm.
 ///
 /// # Arguments
 ///

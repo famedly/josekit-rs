@@ -48,7 +48,7 @@ pub trait JweEncrypter: Debug + Send + Sync {
         out_header: &mut JweHeader,
     ) -> Result<Option<Cow<[u8]>>, JoseError>;
 
-    /// Return a encypted key.
+    /// Return a encrypted key.
     ///
     /// # Arguments
     ///

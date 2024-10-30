@@ -25,7 +25,7 @@ cargo build --release
 ```sh
 1. Update to vX.X.X on cargo.toml and README.md.
 
-2. Run commnads
+2. Run commands
 cargo test
 cargo publish --dry-run
 git tag vX.X.X
@@ -378,7 +378,7 @@ fn main() -> Result<(), JoseError> {
     let signer = HS256.signer_from_bytes(key)?;
     let jwt = jwt::encode_with_signer(&payload, &header, &signer)?;
 
-    // Verifing JWT
+    // Verifying JWT
     let verifier = HS256.verifier_from_bytes(key)?;
     let (payload, header) = jwt::decode_with_verifier(&jwt, &verifier)?;
 
@@ -421,7 +421,7 @@ fn main() -> Result<(), JoseError> {
     let signer = RS256.signer_from_pem(&private_key)?;
     let jwt = jwt::encode_with_signer(&payload, &header, &signer)?;
 
-    // Verifing JWT
+    // Verifying JWT
     let public_key = std::fs::read(PUBLIC_KEY).unwrap();
     let verifier = RS256.verifier_from_pem(&public_key)?;
     let (payload, header) = jwt::decode_with_verifier(&jwt, &verifier)?;
@@ -475,7 +475,7 @@ fn main() -> Result<(), JoseError> {
     let signer = PS256.signer_from_pem(&private_key)?;
     let jwt = jwt::encode_with_signer(&payload, &header, &signer)?;
 
-    // Verifing JWT
+    // Verifying JWT
     let public_key = std::fs::read(PUBLIC_KEY).unwrap();
     let verifier = PS256.verifier_from_pem(&public_key)?;
     let (payload, header) = jwt::decode_with_verifier(&jwt, &verifier)?;
@@ -530,7 +530,7 @@ fn main() -> Result<(), JoseError> {
     let signer = ES256.signer_from_pem(&private_key)?;
     let jwt = jwt::encode_with_signer(&payload, &header, &signer)?;
 
-    // Verifing JWT
+    // Verifying JWT
     let public_key = std::fs::read(PUBLIC_KEY).unwrap();
     let verifier = ES256.verifier_from_pem(&public_key)?;
     let (payload, header) = jwt::decode_with_verifier(&jwt, &verifier)?;
@@ -580,7 +580,7 @@ fn main() -> Result<(), JoseError> {
     let signer = EdDSA.signer_from_pem(&private_key)?;
     let jwt = jwt::encode_with_signer(&payload, &header, &signer)?;
 
-    // Verifing JWT
+    // Verifying JWT
     let public_key = std::fs::read(PUBLIC_KEY).unwrap();
     let verifier = EdDSA.verifier_from_pem(&public_key)?;
     let (payload, header) = jwt::decode_with_verifier(&jwt, &verifier)?;

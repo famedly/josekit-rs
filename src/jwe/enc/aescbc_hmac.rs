@@ -29,7 +29,7 @@ impl AescbcHmacJweEncryption {
         }
     }
 
-    fn calcurate_tag(
+    fn calculate_tag(
         &self,
         aad: &[u8],
         iv: Option<&[u8]>,
@@ -116,7 +116,7 @@ impl JweContentEncryption for AescbcHmacJweEncryption {
         })()
         .map_err(|err| JoseError::InvalidKeyFormat(err))?;
 
-        let tag = self.calcurate_tag(aad, iv, &encrypted_message, mac_key)?;
+        let tag = self.calculate_tag(aad, iv, &encrypted_message, mac_key)?;
 
         Ok((encrypted_message, Some(tag)))
     }
@@ -155,7 +155,7 @@ impl JweContentEncryption for AescbcHmacJweEncryption {
                 None => bail!("A tag value is required."),
             };
 
-            let calc_tag = self.calcurate_tag(aad, iv, &encrypted_message, mac_key)?;
+            let calc_tag = self.calculate_tag(aad, iv, &encrypted_message, mac_key)?;
             if calc_tag.as_slice() != tag {
                 bail!("The tag doesn't match.");
             }

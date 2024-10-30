@@ -51,7 +51,7 @@ impl Clone for Box<dyn JwsSigner> {
 }
 
 pub trait JwsVerifier: Debug + Send + Sync {
-    /// Return the source algrithm instance.
+    /// Return the source algorithm instance.
     fn algorithm(&self) -> &dyn JwsAlgorithm;
 
     /// Return the source key ID.

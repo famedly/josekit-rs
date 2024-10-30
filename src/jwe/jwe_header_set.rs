@@ -26,7 +26,7 @@ impl JweHeaderSet {
     /// # Arguments
     ///
     /// * `value` - a algorithm
-    /// * `protection` - If it dosen't need protection, set false.
+    /// * `protection` - If it doesn't need protection, set false.
     pub fn set_algorithm(&mut self, value: impl Into<String>, protection: bool) {
         let key = "alg";
         let value: String = value.into();
@@ -53,7 +53,7 @@ impl JweHeaderSet {
     /// # Arguments
     ///
     /// * `value` - a content encryption
-    /// * `protection` - If it dosen't need protection, set false.
+    /// * `protection` - If it doesn't need protection, set false.
     pub fn set_content_encryption(&mut self, value: impl Into<String>, protection: bool) {
         let key = "enc";
         let value: String = value.into();

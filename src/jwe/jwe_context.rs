@@ -500,27 +500,27 @@ impl JweContext {
             let (ciphertext, tag) =
                 cencryption.encrypt(&key, iv.as_deref(), content, full_aad.as_bytes())?;
 
-            let mut writed = false;
+            let mut written = false;
             let mut json = String::new();
             if let Some(val) = protected_b64 {
                 json.push_str("{\"protected\":\"");
                 json.push_str(&val);
                 json.push_str("\"");
-                writed = true;
+                written = true;
             }
 
             if let Some(val) = header {
                 let unprotected_map = val.claims_set(false);
                 if unprotected_map.len() > 0 {
                     let unprotected = serde_json::to_string(unprotected_map)?;
-                    json.push_str(if writed { "," } else { "{" });
+                    json.push_str(if written { "," } else { "{" });
                     json.push_str("\"unprotected\":");
                     json.push_str(&unprotected);
-                    writed = true;
+                    written = true;
                 }
             }
 
-            json.push_str(if writed { "," } else { "{" });
+            json.push_str(if written { "," } else { "{" });
             json.push_str("\"recipients\":[");
             for i in 0..recipient_headers.len() {
                 if i > 0 {
@@ -751,23 +751,23 @@ impl JweContext {
 
             let (ciphertext, tag) = cencryption.encrypt(&key, iv, content, full_aad.as_bytes())?;
 
-            let mut writed = false;
+            let mut written = false;
             let mut json = String::new();
             if let Some(val) = protected_b64 {
                 json.push_str("{\"protected\":\"");
                 json.push_str(&val);
                 json.push_str("\"");
-                writed = true;
+                written = true;
             }
 
             if let Some(val) = header {
                 let unprotected_map = val.claims_set(false);
                 if unprotected_map.len() > 0 {
                     let unprotected = serde_json::to_string(unprotected_map)?;
-                    json.push_str(if writed { "," } else { "{" });
+                    json.push_str(if written { "," } else { "{" });
                     json.push_str("\"unprotected\":");
                     json.push_str(&unprotected);
-                    writed = true;
+                    written = true;
                 }
             }
 
@@ -775,7 +775,7 @@ impl JweContext {
                 let header_map = val.claims_set();
                 if header_map.len() > 0 {
                     let header = serde_json::to_string(header_map)?;
-                    json.push_str(if writed { "," } else { "{" });
+                    json.push_str(if written { "," } else { "{" });
                     json.push_str("\"header\":");
                     json.push_str(&header);
                 }

@@ -1,0 +1,7 @@
+[files]
+extend-exclude = ["data/**"]
+
+[default.extend-words]
+# Can't change the API surface
+encrypter = "encrypter"
+deriver = "deriver"

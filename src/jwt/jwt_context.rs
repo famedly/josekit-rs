@@ -50,7 +50,7 @@ impl JwtContext {
         self.jwe_context.remove_acceptable_critical(name);
     }
 
-    /// Return the string repsentation of the JWT with a "none" algorithm.
+    /// Return the string representation of the JWT with a "none" algorithm.
     ///
     /// # Arguments
     ///
@@ -64,7 +64,7 @@ impl JwtContext {
         self.encode_with_signer(payload, header, &jwt::None.signer())
     }
 
-    /// Return the string repsentation of the JWT with the siginig algorithm.
+    /// Return the string representation of the JWT with the siginig algorithm.
     ///
     /// # Arguments
     ///
@@ -96,7 +96,7 @@ impl JwtContext {
         })
     }
 
-    /// Return the string repsentation of the JWT with the encrypting algorithm.
+    /// Return the string representation of the JWT with the encrypting algorithm.
     ///
     /// # Arguments
     ///
